@@ -5,7 +5,7 @@
     <form action="">
       <div class="formInput email">
         <i class="material-icons">person</i>
-        <input placeholder="Email" type="email" name="" id="" />
+        <input placeholder="Email" type="email" name="" id="email" />
         <i class="material-icons blank">a</i>
       </div>
       <div class="formInput password">
@@ -14,7 +14,7 @@
           placeholder="Password"
           :type="[showPassword ? 'text' : 'password']"
           name=""
-          id=""
+          id="password"
         />
         <i
           class="material-icons eye"
@@ -52,11 +52,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$inputColor: #ddd;
-$inputBackgroundColor: #eee;
-$textColor: #000;
-$backgroundColor: rgba(0, 0, 0, 0);
-$maxWidth: 700px;
+@import "@/assets/styles/_variables.scss";
 
 .login {
   background: $backgroundColor;

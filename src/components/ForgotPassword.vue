@@ -1,37 +1,19 @@
 <template>
   <div class="login">
-    <h1>Hello!</h1>
-    <h1>Register To Get Started</h1>
+    <button class="closeButton"><i class="material-icons">close</i></button>
+    <h1>Forgot Password?</h1>
+    <p>
+      Provide your account's email for which you want to reset your password.
+    </p>
     <form action="">
-      <div class="formInput">
-        <i class="material-icons">person_add</i>
-        <input placeholder="Name" type="text" name="" id="name" />
-      </div>
       <div class="formInput email">
         <i class="material-icons">person</i>
-        <input placeholder="Email" type="email" name="" id="newEmail" />
-      </div>
-      <div class="formInput password">
-        <i class="material-icons">lock</i>
-        <input placeholder="Password" type="text" name="" id="newPassword" />
-      </div>
-      <div class="formInput">
-        <i class="material-icons">local_phone</i>
-        <input placeholder="Phone Number" type="number" name="" id="phone" />
-      </div>
-      <div class="formInput">
-        <i class="material-icons">pin_drop</i>
-        <input placeholder="Address" type="address" name="" id="address" />
+        <input placeholder="Email" type="email" name="" id="" />
       </div>
       <div class="formInput login">
         <button>Register</button>
       </div>
     </form>
-    <div class="postFormItems">
-      <div>
-        <p>Already have an account? <a href="">Login</a></p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -53,10 +35,25 @@ export default {
   margin-inline: auto;
   width: 70vw;
   max-width: $maxWidth;
+  .closeButton {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    margin-left: auto;
+    background: $inputColor;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
   h1 {
     font-family: "Roboto", sans-serif;
     margin: 0.5rem;
-    text-align: left;
   }
   .formInput {
     max-width: 100%;
@@ -113,23 +110,6 @@ export default {
       }
       &:focus {
         outline: none;
-      }
-    }
-  }
-  .postFormItems {
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-inline: 0.5rem;
-    color: rgba(0, 0, 0, 0.7);
-    a {
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      &:hover {
-        text-decoration: underline;
-        color: black;
       }
     }
   }
