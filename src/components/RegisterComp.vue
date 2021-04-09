@@ -1,39 +1,35 @@
 <template>
   <div class="login">
-    <h1>Hello Again!</h1>
-    <h1>Welcome Back</h1>
+    <h1>Hello!</h1>
+    <h1>Register To Get Started</h1>
     <form action="">
+      <div class="formInput">
+        <i class="material-icons">person_add</i>
+        <input placeholder="Name" type="text" name="" id="" />
+      </div>
       <div class="formInput email">
         <i class="material-icons">person</i>
         <input placeholder="Email" type="email" name="" id="" />
-        <i class="material-icons blank">a</i>
       </div>
       <div class="formInput password">
         <i class="material-icons">lock</i>
-        <input
-          placeholder="Password"
-          :type="[showPassword ? 'text' : 'password']"
-          name=""
-          id=""
-        />
-        <i
-          class="material-icons eye"
-          :class="[showPassword ? '' : 'hidden']"
-          @click="showPassword = !showPassword"
-          >remove_red_eye</i
-        >
+        <input placeholder="Password" type="text" name="" id="" />
+      </div>
+      <div class="formInput">
+        <i class="material-icons">local_phone</i>
+        <input placeholder="Phone Number" type="number" name="" id="" />
+      </div>
+      <div class="formInput">
+        <i class="material-icons">pin_drop</i>
+        <input placeholder="Address" type="address" name="" id="" />
       </div>
       <div class="formInput login">
-        <button>Login</button>
+        <button>Register</button>
       </div>
     </form>
     <div class="postFormItems">
-      <div class="item1">
-        <input type="checkbox" name="" id="rememberMe" />
-        <label for="rememberMe">Remeber me</label>
-      </div>
-      <div class="item2">
-        <a href="#">Forgot Password</a>
+      <div>
+        <p>Already have an account? <a href="">Login</a></p>
       </div>
     </div>
   </div>
@@ -42,12 +38,6 @@
 <script>
 export default {
   name: "LoginComp",
-  props: {},
-  data() {
-    return {
-      showPassword: false,
-    };
-  },
 };
 </script>
 
@@ -94,8 +84,10 @@ $maxWidth: 700px;
     .blank {
       margin-left: 0.5rem;
     }
-    .eye {
+    .right-icon {
       margin-left: 0.5rem;
+    }
+    .eye {
       cursor: pointer;
       position: relative;
       &.hidden::after {
@@ -116,18 +108,23 @@ $maxWidth: 700px;
       width: 100%;
       height: auto;
       border: none;
-      border-radius: 0;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
       padding-block: 1rem;
-      border-inline: 0.1rem solid rgba(0, 0, 0, 0.5);
-
+      border-left: 0.1rem solid rgba(0, 0, 0, 0.5);
       &:focus {
         outline: none;
+      }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
       }
     }
     button {
       font-family: "Roboto", sans-serif;
-      padding: 1rem;
       width: 100%;
+      padding: 1rem;
       font-size: 125%;
       border-radius: 1rem;
       border: none;
@@ -136,7 +133,7 @@ $maxWidth: 700px;
       background: $textColor;
       color: $inputBackgroundColor;
       &:hover {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.1);
       }
       &:focus {
         outline: none;
@@ -147,11 +144,13 @@ $maxWidth: 700px;
     font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-inline: 0.5rem;
+    color: rgba(0, 0, 0, 0.7);
     a {
       color: black;
       text-decoration: none;
+      font-weight: bold;
       &:hover {
         text-decoration: underline;
         color: black;
