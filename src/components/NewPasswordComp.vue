@@ -1,17 +1,27 @@
 <template>
   <div class="login">
-    <h1>Hello Again!</h1>
-    <h1>Welcome Back</h1>
-    <form action="/">
-      <div class="formInput email">
-        <i class="material-icons">person</i>
-        <input placeholder="Email" type="email" name="" id="email" />
-        <i class="material-icons blank">a</i>
+    <h1>New Credentials</h1>
+    <p>Set your new password.</p>
+    <form action="/login">
+      <div class="formInput password">
+        <i class="material-icons">lock</i>
+        <input
+          placeholder="New Password"
+          :type="[showPassword ? 'text' : 'password']"
+          name=""
+          id="password"
+        />
+        <i
+          class="material-icons eye"
+          :class="[showPassword ? '' : 'hidden']"
+          @click="showPassword = !showPassword"
+          >remove_red_eye</i
+        >
       </div>
       <div class="formInput password">
         <i class="material-icons">lock</i>
         <input
-          placeholder="Password"
+          placeholder="Confirm Password"
           :type="[showPassword ? 'text' : 'password']"
           name=""
           id="password"
@@ -24,20 +34,9 @@
         >
       </div>
       <div class="formInput login">
-        <button>Login</button>
+        <button>Confirm</button>
       </div>
     </form>
-    <div class="postFormItems">
-      <div class="item1">
-        <input type="checkbox" name="" id="rememberMe" />
-        <label for="rememberMe">Remeber me</label>
-      </div>
-      <div class="item2">
-        <a href="#"
-          ><router-link to="/ForgotPass">Forgot Password</router-link></a
-        >
-      </div>
-    </div>
   </div>
 </template>
 
@@ -68,7 +67,6 @@ export default {
   h1 {
     font-family: "Roboto", sans-serif;
     margin: 0.5rem;
-    text-align: left;
   }
   .formInput {
     max-width: 100%;

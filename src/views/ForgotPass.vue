@@ -1,20 +1,17 @@
 <template>
   <div class="login">
-    <LoginComp />
-    <RegisterComp />
+    <ForgotPassword />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import LoginComp from "@/components/LoginComp.vue";
-import RegisterComp from "@/components/RegisterComp.vue";
+import ForgotPassword from "@/components/ForgotPasswordComp.vue";
 
 export default {
-  name: "Login",
+  name: "ForgotPass",
   components: {
-    LoginComp,
-    RegisterComp,
+    ForgotPassword,
   },
 };
 </script>
@@ -22,5 +19,6 @@ export default {
 <style lang="scss" scoped>
 .login {
   display: flex;
+  flex-direction: column;
 }
 </style>

@@ -2,19 +2,48 @@
   <div class="login">
     <h1>Hello!</h1>
     <h1>Register To Get Started</h1>
-    <form action="">
+    <form action="/">
       <div class="formInput">
         <i class="material-icons">person_add</i>
-        <input placeholder="Name" type="text" name="" id="name" />
+        <input placeholder="Name" required type="text" name="" id="name" />
       </div>
       <div class="formInput email">
         <i class="material-icons">person</i>
-        <input placeholder="Email" type="email" name="" id="newEmail" />
+        <input
+          placeholder="Email"
+          required
+          type="email"
+          name=""
+          id="newEmail"
+        />
       </div>
       <div class="formInput password">
         <i class="material-icons">lock</i>
-        <input placeholder="Password" type="text" name="" id="newPassword" />
+        <input
+          placeholder="Password"
+          required
+          v-bind:value="password"
+          v-on:input="password = $event.target.value"
+          type="password"
+          name=""
+          id="newPassword"
+        />
       </div>
+      <div class="formInput password">
+        <i class="material-icons">lock</i>
+        <input
+          placeholder="Confirm Password"
+          required
+          v-bind:value="confPassword"
+          v-on:input="confPassword = $event.target.value"
+          type="password"
+          name=""
+          id="confPassword"
+        />
+      </div>
+      <p class="passMatchErr" v-if="password != confPassword">
+        Passwords must match.
+      </p>
       <div class="formInput">
         <i class="material-icons">local_phone</i>
         <input placeholder="Phone Number" type="number" name="" id="phone" />
@@ -24,7 +53,9 @@
         <input placeholder="Address" type="address" name="" id="address" />
       </div>
       <div class="formInput login">
-        <button>Register</button>
+        <button :class="[password == confPassword ? enabled : 'disabled']">
+          Register
+        </button>
       </div>
     </form>
     <div class="postFormItems">
@@ -38,12 +69,21 @@
 <script>
 export default {
   name: "LoginComp",
+  data() {
+    return {
+      password: "",
+      confPassword: "",
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/styles/_variables.scss";
-
+.passMatchErr {
+  color: red;
+  text-align: left;
+}
 .login {
   background: $backgroundColor;
   color: $textColor;
@@ -70,6 +110,10 @@ export default {
     margin-block: 1rem;
     &:first-child {
       margin-top: 0;
+    }
+    &:last-child {
+      background: none;
+      color: $inputBackgroundColor;
     }
 
     i {
@@ -106,13 +150,29 @@ export default {
       border: none;
       cursor: pointer;
 
-      background: $textColor;
-      color: $inputBackgroundColor;
+      &.disabled {
+        z-index: -1;
+        cursor: unset;
+        background: rgba(25, 25, 25, 0.9);
+        &:hover {
+          background: rgba(25, 25, 25, 0.9);
+        }
+        p {
+          margin: 0;
+          z-index: 1000;
+        }
+      }
       &:hover {
         background: rgba(0, 0, 0, 0.8);
       }
+      background: $textColor;
+      color: $inputBackgroundColor;
       &:focus {
         outline: none;
+      }
+      p {
+        margin: 0;
+        z-index: 1;
       }
     }
   }

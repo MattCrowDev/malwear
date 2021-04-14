@@ -1,11 +1,10 @@
 <template>
   <div class="login">
-    <button class="closeButton"><i class="material-icons">close</i></button>
     <h1>Forgot Password?</h1>
     <p>
       Provide your account's email for which you want to reset your password.
     </p>
-    <form action="">
+    <form action="/NewCredentials">
       <div class="formInput email">
         <i class="material-icons">person</i>
         <input placeholder="Email" type="email" name="" id="" />
@@ -35,22 +34,6 @@ export default {
   margin-inline: auto;
   width: 70vw;
   max-width: $maxWidth;
-  .closeButton {
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    margin-left: auto;
-    background: $inputColor;
-    border: 0.1rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    &:hover {
-      background: rgba(0, 0, 0, 0.1);
-    }
-    &:focus {
-      outline: none;
-    }
-  }
   h1 {
     font-family: "Roboto", sans-serif;
     margin: 0.5rem;
